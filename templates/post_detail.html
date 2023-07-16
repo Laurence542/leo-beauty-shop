@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+{% block content %}
+  <br><br>
+
+
+
+<!-- Single Page Start -->
+<div class="single">
+  <div class="container">
+      <div class="section-header text-center">
+          <h1><b>{% block title %} {{ object.title }} {% endblock title %}</b></h1>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <img src="{{post.image.url}}" alt="Image">
+              <br>
+              <h1>
+               <strong>Price: </strong>Ksh {{object.price}}
+              </h1>
+              <br>
+              <p>
+                {{ object.body | safe }}
+              </p>
+              <a href="{% url 'booking_appointments' %}" class="btn btn-primary">Book Now</a>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Single Page End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  </div>
+</div>
+</div>
+</div>
+
+
+<!-- News With Sidebar End -->
+
+
+{% endblock content %}
+
+

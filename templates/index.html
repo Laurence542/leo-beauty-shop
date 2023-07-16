@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<br><br>
+ <!-- Carousel Start -->
+ <div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'images/barba.jpg' %}" alt="Image" style="height: 800px; filter: brightness(50%) grayscale(50%);">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3 d-flex flex-column align-items-start" style="margin-bottom: 300px;">
+                        <h1 class="display-3 text-white mb-4 animated slideInDown"><b>Your Exclusive Salon and Beauty Center.</b></h1>
+                      </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+
+
+
+
+<!-- About Start -->
+<div class="container-fluid py-5">
+  <div class="container py-5">
+      <div class="row align-items-center">
+          <div class="col-lg-6 pb-5 pb-lg-0">
+              <img class="img-fluid w-100" src="{% static 'images/aboutus.jpg' %}" alt=""style="height:600px">
+          </div>
+          <div class="col-lg-6">
+              <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">About Us</h6>
+              <h1 class="mb-4">Your Premier Salon and Beauty Hub.</h1>
+              <p class="pl-4 border-left border-primary">
+                Welcome to Leo Beauty Company, where we provide a comprehensive range of beauty services to enhance your natural radiance. 
+                Step into our salon and indulge in luxurious pedicure and manicure treatments that will leave your feet rejuvenated and your nails looking fabulous.
+                 Our skilled hairstylists are here to create the perfect haircut, whether you prefer a trendy, modern style or a classic, timeless look. Embrace the natural beauty and uniqueness of dreadlocks with the expertise of our experienced stylists.
+                  Our talented makeup artists are passionate about enhancing 
+                 your features and creating stunning looks for any occasion. And for hair that needs a refresh, our professional hair cleaning services will revitalize and rejuvenate your locks. At Leo Beauty Company, 
+                we are dedicated to providing exceptional beauty services that help you embrace your natural beauty with confidence.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- About End -->
+
+
+
+        <!-- Service Start -->
+        <div class="service">
+          <div class="container">
+                <div class="section-header text-center">
+                    <h2>Best Salon and Barber Services for You</h2>
+                </div>
+                  <div class="row">
+                  {% for post in post_list %}
+                  <div class="col-lg-4 col-md-6">
+                      <div class="service-item">
+                          <div class="service-img">
+                              <img src="{{post.image.url}}" alt="Image">
+                          </div>
+                          <h3> <a href="{% url 'post_detail' post.slug  %}">{{ post.title|slice:"15" }}</a></h3>
+                          <p>
+                            {{post.body|slice:":80" }}
+                          </p>
+                          <p>
+                           <strong> Price </strong> ksh: {{post.price}}
+                          </p>
+                          <a class="btn" href="{% url 'post_detail' post.slug  %}">Learn More</a>
+                          <a class="btn" href="{% url 'booking_appointments'%}">Book Now</a>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
+      <!-- Service End -->
+
+
+{%endblock%}
+
+
+

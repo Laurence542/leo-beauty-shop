@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<html>
+<head>
+
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS to center the content */
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 40vh;
+      text-align: center;
+    }
+
+    .black-button {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-content">
+    <h3>Successfully Booked. Your ticket is 848659588</h3>
+    <a href="{% url 'clientlogin'%}" class="btn black-button">Track your Application</a>
+  </div>
+
+  <!-- Include Bootstrap JS (optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<script>
+// Generate a random number between 100000000 and 999999999
+var randomNumber = Math.floor(Math.random() * 900000000) + 100000000;
+
+// Replace the placeholder value with the generated random number
+var ticketNumber = document.querySelector("h3").innerHTML;
+var updatedTicketNumber = ticketNumber.replace("848659588", randomNumber);
+
+// Update the HTML with the new ticket number
+document.querySelector("h3").innerHTML = updatedTicketNumber;
+
+</script>
+
+<br><br>
+
+
+
+
+
+
+
+{%endblock%}
